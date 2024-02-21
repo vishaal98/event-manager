@@ -1,6 +1,11 @@
 const httpStatus = require("http-status");
 const Event = require("../models/event_model");
 
+const getAllEvents = async () => {
+  const events = Event.find({});
+  return events;
+};
+
 const createEvent = async (user, eventData) => {
   console.log(user);
   const event = await Event.create(eventData);
@@ -45,6 +50,7 @@ const deleteEvent = async (user, eventId) => {
 };
 
 module.exports = {
+  getAllEvents,
   createEvent,
   updateEvent,
   deleteEvent,

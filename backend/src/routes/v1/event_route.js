@@ -6,6 +6,8 @@ const auth = require("../../middlewares/auth");
 
 const router = express.Router();
 
+router.get("/list", eventController.listEvent);
+
 router.post(
   "/create",
   auth,

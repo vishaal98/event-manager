@@ -1,6 +1,11 @@
 const { eventService } = require("../services");
 const catchAsync = require("../utils/catchAsync");
 
+const listEvent = catchAsync(async (req, res) => {
+  const events = await eventService.getAllEvents();
+  res.send(events);
+});
+
 const createEvent = catchAsync(async (req, res) => {
   const event = await eventService.createEvent(req.user, req.body);
   res.send(event);
@@ -20,6 +25,7 @@ const deleteEvent = catchAsync(async (req, res) => {
 });
 
 module.exports = {
+  listEvent,
   createEvent,
   updateEvent,
   deleteEvent,
