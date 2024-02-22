@@ -14,7 +14,7 @@ router.get(
 );
 
 router.put(
-  "/user/:userId",
+  "/:userId",
   auth,
   validate(userValidation.updateUser),
   userController.updateUser

@@ -1,0 +1,51 @@
+.myEventContainer{
+    margin: 3rem 4rem;
+}
+
+.myEventHeader{
+    display: flex;
+    justify-content: space-between;
+}
+
+.gridContainer{
+    margin: 2rem 0;
+    display: grid;
+    grid-template-columns: 32% 32% 32%;
+    gap: 1rem;
+    width: 100%;
+}
+
+.gridItem{
+    padding: 0.5rem 1rem;
+    height: fit-content;
+    border: 1px solid #d1d5db;
+    box-shadow: rgba(0, 0, 0, 0.2) 10px 15px 30px 0px;
+    border-radius: 10px;
+}
+
+.subDetails{
+    margin: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.gridHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+}
+
+@media only screen and (max-width: 576px){
+    .gridContainer{
+    margin: 2rem 0;
+    grid-template-columns: 100%;
+    }
+
+    .gridItem{
+        padding: 0.25rem 0.25rem;
+    }
+    .createEventButton{
+        height: 4rem;
+        font-size: 0.8rem;
+    }
+}

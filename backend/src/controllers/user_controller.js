@@ -1,7 +1,7 @@
 const httpStatus = require("http-status");
 const ApiError = require("../utils/apiError");
 const catchAsync = require("../utils/catchAsync");
-const { userService } = require("../services");
+const { userService, eventService } = require("../services");
 
 const getUser = catchAsync(async (req, res) => {
   let userData = await userService.getUserById(req.params.userId);
@@ -15,15 +15,6 @@ const getUser = catchAsync(async (req, res) => {
       "User not authorized to view some other user's data"
     );
   }
-  //   if (req.query) {
-  //     const { q } = req.query;
-  //     if (q === "address") {
-  //       const addressDetails = await userService.getUserAddressById(
-  //         req.params.userId
-  //       );
-  //       return res.send({ address: addressDetails.address });
-  //     }
-  //   }
   res.send(userData);
 });
 

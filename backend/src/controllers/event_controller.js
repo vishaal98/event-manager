@@ -24,9 +24,22 @@ const deleteEvent = catchAsync(async (req, res) => {
   res.send(user);
 });
 
+const registerToEvent = catchAsync(async (req, res) => {
+  console.log(req.user);
+  const event = await eventService.registerEvent(req.user, req.params.eventId);
+  res.send(event);
+});
+
+const getAllMyEvents = catchAsync(async (req, res) => {
+  const myEvents = await eventService.getAllMyEvents(req.user);
+  res.send(myEvents);
+});
+
 module.exports = {
   listEvent,
   createEvent,
   updateEvent,
   deleteEvent,
+  registerToEvent,
+  getAllMyEvents,
 };

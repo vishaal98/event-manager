@@ -1,13 +1,17 @@
 const httpStatus = require("http-status");
 const Event = require("../models/event_model");
+const ApiError = require("../utils/apiError");
 
 const getAllEvents = async () => {
-  const events = Event.find({});
+  const events = Event.find({}).populate({
+    path: "attendees",
+    select: "-password -events", // Exclude the password field
+  });
+
   return events;
 };
 
 const createEvent = async (user, eventData) => {
-  console.log(user);
   const event = await Event.create(eventData);
   if (!event) {
     throw new ApiError(
@@ -49,9 +53,27 @@ const deleteEvent = async (user, eventId) => {
   };
 };
 
+const registerEvent = async (user, eventId) => {
+  let event = await Event.findById(eventId);
+  if (!event)
+    throw new ApiError(httpStatus.BAD_REQUEST, "Event does not exist");
+  const index = event.attendees.indexOf(user._id);
+  if (index === -1) event.attendees.push(user._id);
+  else throw new ApiError(httpStatus.ALREADY_REPORTED, "Already Registered");
+  await event.save();
+  return event;
+};
+
+const getAllMyEvents = async (user) => {
+  const updatedUser = await user.populate({ path: "events" });
+  return updatedUser.events;
+};
+
 module.exports = {
   getAllEvents,
   createEvent,
   updateEvent,
   deleteEvent,
+  registerEvent,
+  getAllMyEvents,
 };

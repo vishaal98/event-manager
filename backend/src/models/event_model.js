@@ -12,6 +12,11 @@ const eventSchema = mongoose.Schema(
       required: true,
       trim: true,
     },
+    category: {
+      type: String,
+      required: true,
+      trim: true,
+    },
     location: {
       type: String,
       required: true,
@@ -19,11 +24,6 @@ const eventSchema = mongoose.Schema(
     },
     date: {
       type: Date,
-      required: true,
-      trim: true,
-    },
-    time: {
-      type: String,
       required: true,
       trim: true,
     },

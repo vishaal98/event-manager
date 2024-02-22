@@ -1,0 +1,51 @@
+/* @value primary, secondary from '../../assets/styles/variables.css'; */
+
+@import "../../assets/styles/variables.css";
+
+.header{
+    padding: 0.5rem;
+    /* background-color: var(--primary); */
+    color: var(--text);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.headerButtons{
+    display: flex;
+    justify-content: space-around;
+}
+
+.headerButtons > h1{
+    font-size: larger;
+    margin: 0.5rem;
+    cursor: pointer;
+}
+
+.hero{
+    cursor: pointer;
+}
+
+.hero > a{
+    text-decoration: none;
+}
+
+
+@media only screen and (max-width: 576px) {
+    .headerButtons{
+        display: none;
+    }
+    .header{
+        justify-content: start !important;
+    }
+    .headerButtonsMobile{
+        /* display: flex;
+        flex-direction: column;
+        align-items: start; */
+        text-align: left;
+    }
+    .headerButtonsMobile h3{
+        margin: 1.5rem;
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,10 @@
+:root {
+  /* Media query as CSS variable */
+  --small-screen: only screen and (max-width: 576px);
+
+  /* Colors as CSS variables */
+  --primary: #7BD3EA;
+  --secondary: #A1EEBD;
+  --accent: #F6F7C4;
+  --text: #051325;
+}

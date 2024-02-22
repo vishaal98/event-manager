@@ -1,0 +1,10 @@
+.filterContainer{
+    padding-left: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    /* height: fit-content; */
+height: 800px;
+border-right: 1px solid #d1d5db;
+}

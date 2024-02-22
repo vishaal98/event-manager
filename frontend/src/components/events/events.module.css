@@ -1,0 +1,98 @@
+@import "../../assets/styles/variables.css";
+
+.eventContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.accordion{
+    width: 80%;
+    height: fit-content;
+    background-color: white;
+    border: solid  1px #d1d5db;
+    padding: 0.5rem 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+}
+
+.accordianDetail{
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.description{
+    margin-bottom: 2rem;
+}
+
+.card{
+    width: 100%;
+    height: 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.card:hover {
+    box-shadow: rgba(0, 0, 0, 0.3);
+    transform: scale(1.0025); 
+}
+
+.eventHead{
+    display: flex;
+    justify-content: space-between;
+}
+
+.eventDetails{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+}
+
+.time{
+    display: flex;
+    align-items: center;
+    color: grey;
+}
+
+.buttonContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+.button{
+    height: 2rem;
+    margin: 1rem;
+    margin-right: 0;
+    color: white;
+    background-color: #1d4ed8;
+}
+
+.button:hover{
+    background-color: #3b82f6;
+}
+
+.moreButton{
+    text-transform: none;
+    font-weight: 600;
+}
+
+.listItem{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+@media only screen and (max-width: 576px){
+    .accordion{
+        padding: 0.25rem 0.30rem;
+    }
+}

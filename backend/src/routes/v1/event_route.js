@@ -8,6 +8,8 @@ const router = express.Router();
 
 router.get("/list", eventController.listEvent);
 
+router.get("/myEvents", auth, eventController.getAllMyEvents);
+
 router.post(
   "/create",
   auth,
@@ -29,11 +31,11 @@ router.delete(
   eventController.deleteEvent
 );
 
-// router.put(
-//   "/user/:userId",
-//   auth,
-//   validate(userValidation.updateUser),
-//   userController.updateUser
-// );
+router.post(
+  "/regiterEvent/:eventId",
+  auth,
+  validate(eventValidation.registerEvent),
+  eventController.registerToEvent
+);
 
 module.exports = router;

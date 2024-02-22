@@ -64,7 +64,7 @@ const updateUser = async (userId, userData) => {
     _id: updatedUser._id,
     name: updatedUser.name,
     email: updatedUser.email,
-    walletMoney: updatedUser.walletMoney,
+    events: updatedUser.events,
   };
 };
 

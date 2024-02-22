@@ -1,0 +1,10 @@
+@import "../../assets/styles/variables.css";
+.button{
+    margin-top: 20px;
+    color: var(--text);
+    background-color: var(--primary);
+}
+
+.button:hover{
+    background-color: var(--secondary);
+}
