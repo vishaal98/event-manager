@@ -48,7 +48,7 @@ function MyEvents() {
         </div>
         <div className={styles.gridContainer}>
           {myEvents?.map((event) => (
-            <div className={styles.gridItem}>
+            <div key={event._id} className={styles.gridItem}>
               <div className={styles.gridHeader}>
                 <h5>{event.name}</h5>
                 <Button

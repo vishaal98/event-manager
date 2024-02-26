@@ -8,6 +8,10 @@
     width: 100%;
 }
 
+.eventContainer h2:first-child{
+    margin: 15rem;
+}
+
 .accordion{
     width: 80%;
     height: fit-content;
@@ -87,7 +91,7 @@
 
 .listItem{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between !important;
 }
 
 
