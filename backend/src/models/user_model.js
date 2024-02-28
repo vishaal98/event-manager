@@ -57,11 +57,6 @@ userSchema.methods.isPasswordMatch = async function (password) {
   return bcrypt.compare(password, user.password);
 };
 
-userSchema.methods.hasSetNonDefaultAddress = async function () {
-  const user = this;
-  return user.address !== config.default_address;
-};
-
 const User = mongoose.model("User", userSchema);
 
 module.exports = User;

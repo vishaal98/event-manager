@@ -23,8 +23,6 @@ function Events() {
   const [events, setEvents] = useState(null);
   const token = localStorage.getItem("token");
   const user = JSON.parse(localStorage.getItem("user"));
-  //   const [attendIsLoading, setAttendIsLoading] = useState(false);
-
   const fetchEvents = async () => {
     try {
       const res = await axios.get("v1/event/list");
@@ -135,12 +133,6 @@ function Events() {
                           Attend
                         </Button>
                       ))}
-                    {/* {console.log(
-                    "user eevents: ",
-                    user?.events,
-                    "event id",
-                    e._id
-                  )} */}
                   </div>
                 </div>
               </div>
@@ -155,17 +147,12 @@ function Events() {
                 <List>
                   {e.attendees?.length > 0
                     ? e.attendees?.map((user) => (
-                        <ListItem
-                          className={styles.listItem}
-                          key={user._id}
-                          // style={{ justifyContent: "space-between" }}
-                        >
+                        <ListItem className={styles.listItem} key={user._id}>
                           <div>{user.name}</div>
                           <div> {user.email}</div>
                         </ListItem>
                       ))
                     : "No participants"}
-                  {/* {e.attendees.length} */}
                 </List>
               </div>
             </AccordionDetails>
