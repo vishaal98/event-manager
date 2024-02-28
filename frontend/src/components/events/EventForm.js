@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import DialogContent from "@mui/material/DialogContent";
@@ -31,6 +31,8 @@ function EventForm({ handleClose, selectedEvent }) {
   });
   const createEvent = async (data) => {
     setIsLoading(true);
+    console.log(date);
+
     data = { ...data, date: new Date(date.$d).toISOString() };
     try {
       await axios.post("v1/event/create", data);
@@ -44,7 +46,9 @@ function EventForm({ handleClose, selectedEvent }) {
   };
   const updateEvent = async (data) => {
     setIsLoading(true);
+    console.log(date);
     data = { ...data, date: new Date(date.$d).toISOString() };
+    console.log(new Date(date.$d).toISOString());
     console.log(data);
     try {
       await axios.put(`v1/event/update/${selectedEvent._id}`, data);
@@ -56,6 +60,16 @@ function EventForm({ handleClose, selectedEvent }) {
       console.log("Error updating the Event", err);
     }
   };
+
+  // useEffect(() => {
+  //   setDate(selectedEvent?.date);
+  // }, [selectedEvent]);
+
+  useEffect(() => {
+    if (selectedEvent?.date)
+      // setDate(selectedEvent?.date);
+      console.log(new Date(selectedEvent.date).to);
+  }, []);
 
   return (
     <>
@@ -106,6 +120,7 @@ function EventForm({ handleClose, selectedEvent }) {
           <InputLabel id="category">Category</InputLabel>
           <Select
             fullWidth
+            defaultValue={selectedEvent ? selectedEvent.category : ""}
             labelId="category"
             label="category"
             {...register("category", {
@@ -121,8 +136,12 @@ function EventForm({ handleClose, selectedEvent }) {
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DemoContainer components={["MobileDateTimePicker"]}>
               <MobileDateTimePicker
+                disablePast
                 value={date}
-                onChange={(value) => setDate(value)}
+                onChange={(value) => {
+                  console.log(value);
+                  setDate(value);
+                }}
               />
             </DemoContainer>
           </LocalizationProvider>
